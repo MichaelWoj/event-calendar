@@ -11,7 +11,7 @@ headers = {
      'api-key': API_KEY 
 }
 
-#__init__.py files in this and the previous folder are necessary to make sure that Python treats the directories as packages
+# __init__.py files in this and the previous folder are necessary to make sure that Python treats the directories as packages
 class Command(BaseCommand):
     help = 'Fetch data from the external API and populate the database'
 
@@ -25,6 +25,7 @@ class Command(BaseCommand):
                 event_id = event_data['id']
         
                 # Make the second API call to get detailed information for each event
+                # If the API was a paid service per call I would do this differently.
                 detailed_response = requests.get(DETAIL_API_URL.format(id=event_id), headers=headers)
                 if detailed_response.status_code == 200:
                     detailed_event_data = detailed_response.json()

@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Calendar</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Event Calendar - {{ month }}/{{ year }}</h1>
+            <div class="nav-buttons">
+                <a href="{% url 'calendar_view' year=year month=month|add:-1 %}" class="btn prev-btn">Previous Month</a>
+                <a href="{% url 'calendar_view' year=year month=month|add:1 %}" class="btn next-btn">Next Month</a>
+            </div>
+        </header>
+
+        <div class="calendar-container">
+            {{ calendar|safe }}
+        </div>
+    </div>
+
+    <!-- Side Panel for Event Details -->
+    <div class="side-panel" id="side-panel">
+        <span class="close-btn">&times;</span>
+        <h2>Event Title</h2>
+        <p><strong>Location:</strong> <span class="event-location"></span></p>
+        <p><strong>Duration:</strong> <span class="event-duration"></span></p>
+        <p><strong>Description:</strong></p>
+        <p class="event-description"></p>
+        <a href="#" class="event-registration" target="_blank">Register Here</a>
+    </div>
+
+    <!-- Add JavaScript code here for AJAX -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+           // Event handler for event bubble click
+    $('.event-bubble').click(function(e) {
+        e.preventDefault();
+        let eventId = $(this).data('event-id');
+
+        // AJAX request to get event details
+        $.ajax({
+            url: '/event-detail/' + eventId + '/',
+            method: 'GET',
+            success: function(data) {
+                // Populate the side panel with event details
+                $('#side-panel h2').text(data.name);
+                $('#side-panel .event-location').text(data.location || 'N/A');
+                $('#side-panel .event-duration').text(data.duration + ' minutes');
+                $('#side-panel .event-description').text(data.long_description || 'No description available.');
+                $('#side-panel .event-registration').attr('href', data.registration_link || '#').text('Register Here');
+
+                // Open the side panel
+                $('.side-panel').addClass('open');
+            },
+            error: function() {
+                alert('Failed to load event details.');
+            }
+        });
+    });
+
+    // Event handler for closing the side panel
+    $('.close-btn').click(function() {
+        $('.side-panel').removeClass('open');
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,251 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f0f4f8;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #3498db;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #3498db;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 2px solid #3498db;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: #3498db;
+    color: #fff;
+}
+
+/* Calendar */
+.calendar-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    width: 14.28%; /* Ensures equal width for all days */
+    height: 120px; /* Fixed height for each day block */
+    position: relative;
+    vertical-align: top;
+}
+
+table th {
+    background-color: #3498db;
+    color: white;
+}
+
+table td {
+    background-color: #f9f9f9;
+    position: relative;
+    text-align: center;
+}
+
+table td a {
+    color: #3498db;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 5px;
+}
+
+table td .event-bubble {
+    background-color: #eaf4fc;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 12px;
+    margin-top: 5px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 80%;
+    max-width: 100px;
+}
+
+table td a:hover {
+    text-decoration: underline;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #333;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Side Panel Styles */
+.side-panel {
+    position: fixed;
+    right: -400px;
+    top: 0;
+    width: 400px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    transition: right 0.3s ease;
+    z-index: 999;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.side-panel.open {
+    right: 0;
+}
+
+.side-panel .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.side-panel h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Event Bubble Styles */
+.event-bubble {
+    background-color: #eaf4fc;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 12px;
+    margin-top: 5px;
+    position: relative;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    width: 80%;
+    margin: 5px auto;
+}
+
+.event-bubble:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+/* General Styling (Existing CSS) */
+body {
+    background-color: #f0f4f8;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #3498db;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.calendar-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    width: 14.28%;
+    height: 120px;
+    padding: 10px;
+    position: relative;
+}
+
+table th {
+    background-color: #3498db;
+    color: white;
+}
+
+table td {
+    background-color: #f9f9f9;
+    position: relative;
+    text-align: center;
+}
