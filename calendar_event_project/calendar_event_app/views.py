@@ -6,7 +6,7 @@ import calendar
 from datetime import datetime
 
 def calendar_view(request, year=datetime.now().year, month=datetime.now().month):
-    events = Events.objects.filter(start_time__year=year, start_time__month=month)
+    events = Events.objects.filter(start_time__year=year, start_time__month=month).order_by('start_time')
     cal = calendar.HTMLCalendar().formatmonth(year, month)
 
     events_by_day = {}
@@ -35,6 +35,7 @@ def event_detail_view(request, event_id):
         event = Events.objects.get(id=event_id)
         event_data = {
             'name': event.name,
+            'start_time':event.start_time.time(),
             'location': event.location,
             'duration': event.duration,
             'long_description': event.long_description,

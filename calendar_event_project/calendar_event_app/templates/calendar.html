@@ -14,8 +14,10 @@
         <header class="header">
             <h1>Event Calendar - {{ month }}/{{ year }}</h1>
             <div class="nav-buttons">
+                <a href="{% url 'calendar_view' year=year|add:-1 month=month %}" class="btn prev-btn">Previous Year</a>
                 <a href="{% url 'calendar_view' year=year month=month|add:-1 %}" class="btn prev-btn">Previous Month</a>
                 <a href="{% url 'calendar_view' year=year month=month|add:1 %}" class="btn next-btn">Next Month</a>
+                <a href="{% url 'calendar_view' year=year|add:1 month=month %}" class="btn prev-btn">Next Year</a>
             </div>
         </header>
 
@@ -28,6 +30,7 @@
     <div class="side-panel" id="side-panel">
         <span class="close-btn">&times;</span>
         <h2>Event Title</h2>
+        <p><strong>Start Time:</strong> <span class="event-start_time"></span></p>
         <p><strong>Location:</strong> <span class="event-location"></span></p>
         <p><strong>Duration:</strong> <span class="event-duration"></span></p>
         <p><strong>Description:</strong></p>
@@ -50,8 +53,9 @@
             success: function(data) {
                 // Populate the side panel with event details
                 $('#side-panel h2').text(data.name);
+                $('#side-panel .event-start_time').text(data.start_time);
                 $('#side-panel .event-location').text(data.location || 'N/A');
-                $('#side-panel .event-duration').text(data.duration + ' minutes');
+                $('#side-panel .event-duration').text(data.duration + ' min');
                 $('#side-panel .event-description').text(data.long_description || 'No description available.');
                 $('#side-panel .event-registration').attr('href', data.registration_link || '#').text('Register Here');
 
