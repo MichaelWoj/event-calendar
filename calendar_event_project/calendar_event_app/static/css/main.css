@@ -12,8 +12,10 @@ body {
     flex-flow: column;
     align-items: center;
     font-family: "Poppins", serif;
-    background: #eeaeca;
-    background: radial-gradient(circle, #eeaeca 0%, #94bbe9 100%);
+    background: linear-gradient(45deg, #344E5C, #4AB19D , #EFC958, #E17A47 ,  #EFC958, #4AB19D, #344E5C);
+	animation: gradient 15s ease-in-out infinite;
+    background-size: 400% 400%;
+    height: 100vh;
 }
 
 .container {
@@ -21,13 +23,23 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 
 /* Header */
 .header {
     text-align: center;
     padding: 20px 0;
-    background-color: #3498db;
-    color: white;
+    color: black    ;
     margin-bottom: 20px;
 }
 
@@ -37,6 +49,7 @@ body {
 }
 
 .nav-buttons {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -44,23 +57,17 @@ body {
 
 .btn {
     padding: 10px 20px;
-    background-color: #fff;
-    color: #3498db;
+    color: black;
     text-decoration: none;
     border-radius: 5px;
-    border: 2px solid #3498db;
+    border: 2px solid black;
     transition: background-color 0.3s, color 0.3s;
-}
-
-.btn:hover {
-    background-color: #3498db;
-    color: #fff;
 }
 
 /* Calendar */
 .calendar-container {
     border-radius: 10px;
-    padding: 20px;
+    padding: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -77,19 +84,33 @@ table td {
     height: 120px;
     padding: 0;
     vertical-align: top;
+    border-radius: 0.2rem;
+    padding: 1rem;
+    font-weight: 300;
+    font-size: 0.8rem;
     box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background-color: #f9f9f9;
 }
 
 table th {
-    background-color: #3498db;
-    color: white;
+    font-family: "Poppins", serif;
+    font-size: large;
     padding: 10px;
+
 }
 
 table td {
+    font-family: "Poppins", serif;
     background-color: #f9f9f9;
     position: relative;
-    text-align: left;
+    text-align: top;
+    font-size: medium;
     padding: 5px;
     vertical-align: top; /* Align content to the top */
 }
@@ -121,6 +142,14 @@ table td a:hover {
     text-decoration: underline;
 }
 
+.current-day {
+    background-color: #ffeb3b; /* Yellow background */
+    color: #000; /* Black text */
+    font-weight: bold;
+    border: 2px solid #f57c00; /* Orange border */
+    padding: 5px;
+    border-radius: 5px;
+}
 /* Modal */
 .modal {
     display: none;

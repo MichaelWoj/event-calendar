@@ -6,6 +6,14 @@ import calendar
 from datetime import datetime
 
 def calendar_view(request, year=datetime.now().year, month=datetime.now().month):
+
+    if month < 1:
+        month = 12
+        year -= 1
+    elif month > 12:
+        month = 1
+        year += 1
+
     events = Events.objects.filter(start_time__year=year, start_time__month=month).order_by('start_time')
     cal = calendar.HTMLCalendar().formatmonth(year, month)
 
@@ -20,7 +28,7 @@ def calendar_view(request, year=datetime.now().year, month=datetime.now().month)
         event_bubbles = ''.join(
             [f"<div class='event-bubble' data-event-id='{event.id}'>{event.name}</div>" for event in events_list]
         )
-        day_html = f"<a href='#'>{day}</a>{event_bubbles}"
+        day_html = f"{day}{event_bubbles}"
         cal = cal.replace(f'>{day}<', f'>{day_html}<')
 
     context = {

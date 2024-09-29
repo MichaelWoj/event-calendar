@@ -13,15 +13,15 @@
     <div class="container">
         <header class="header">
             <h1>Event Calendar - {{ month }}/{{ year }}</h1>
+        </header>
+
+        <div class="calendar-container">
             <div class="nav-buttons">
                 <a href="{% url 'calendar_view' year=year|add:-1 month=month %}" class="btn prev-btn">Previous Year</a>
                 <a href="{% url 'calendar_view' year=year month=month|add:-1 %}" class="btn prev-btn">Previous Month</a>
                 <a href="{% url 'calendar_view' year=year month=month|add:1 %}" class="btn next-btn">Next Month</a>
                 <a href="{% url 'calendar_view' year=year|add:1 month=month %}" class="btn prev-btn">Next Year</a>
             </div>
-        </header>
-
-        <div class="calendar-container">
             {{ calendar|safe }}
         </div>
     </div>
