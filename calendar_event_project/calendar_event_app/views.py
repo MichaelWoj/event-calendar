@@ -46,8 +46,9 @@ def event_detail_view(request, event_id):
             'start_time':event.start_time.time(),
             'location': event.location,
             'duration': event.duration,
-            'long_description': event.long_description,
             'registration_link': event.registration_link,
+            'short_description': event.short_description,
+            'long_description': event.long_description,
         }
         return JsonResponse(event_data)
     except Events.DoesNotExist:

@@ -84,7 +84,7 @@ table {
 table th,
 table td {
     text-align: center;
-    width: 14.28%; /* Ensures equal width for all days */
+    width: 14.28%; 
     height: 120px;
     padding: 0;
     vertical-align: top;
@@ -111,7 +111,7 @@ table td {
     text-align: top;
     font-size: x-large;
     padding: 5px;
-    vertical-align: top; /* Align content to the top */
+    vertical-align: top; 
 }
 
 table td .event-bubble {
@@ -123,7 +123,7 @@ table td .event-bubble {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    width: 90%; /* Ensure bubbles take up the full width */
+    width: 90%; 
     max-width: 200px;
     margin: 5px auto;
     text-align: center;
@@ -171,7 +171,8 @@ table td a:hover {
     top: 0;
     width: 400px;
     height: 100%;
-    background-color: white;
+    color: #ffffff ;
+    background: linear-gradient(45deg, #344E5C, #4AB19D);
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
     transition: right 0.3s ease;
     z-index: 999;
@@ -194,7 +195,7 @@ table td a:hover {
 .side-panel h2 {
     margin-bottom: 20px;
     font-size: 24px;
-    color: #333;
+    color: #ffffff;
 }
 
 /* Event Bubble Styles */

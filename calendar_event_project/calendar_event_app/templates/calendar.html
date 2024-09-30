@@ -30,9 +30,9 @@
         <p><strong>Start Time:</strong> <span class="event-start_time"></span></p>
         <p><strong>Location:</strong> <span class="event-location"></span></p>
         <p><strong>Duration:</strong> <span class="event-duration"></span></p>
-        <p><strong>Description:</strong></p>
-        <p class="event-description"></p>
-        <a href="#" class="event-registration" target="_blank">Register Here</a>
+        <p><strong>Registration Link:</strong><a href="#" class="event-registration" target="_blank">Register Here</a></p>
+        <p><strong>Short Description:</strong><span class="event-short_description"></span></p>
+        <p><strong>Long Description:</strong><span class="event-long_description"></span></p>
     </div>
 
     <!-- Add JavaScript code here for AJAX -->
@@ -53,8 +53,10 @@
                 $('#side-panel .event-start_time').text(data.start_time);
                 $('#side-panel .event-location').text(data.location || 'N/A');
                 $('#side-panel .event-duration').text(data.duration + ' min');
-                $('#side-panel .event-description').text(data.long_description || 'No description available.');
                 $('#side-panel .event-registration').attr('href', data.registration_link || '#').text('Register Here');
+                $('#side-panel .event-short_description').text(data.short_description || 'No description available.');
+                $('#side-panel .event-long_description').text(data.long_description || 'No description available.');
+
 
                 // Open the side panel
                 $('.side-panel').addClass('open');
