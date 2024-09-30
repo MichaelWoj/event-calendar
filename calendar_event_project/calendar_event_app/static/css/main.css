@@ -4,14 +4,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: "Poppins", serif;
 }
 
 body {
     display: flex;
     flex-flow: column;
     align-items: center;
-    font-family: "Poppins", serif;
     background: linear-gradient(45deg, #344E5C, #4AB19D , #EFC958, #E17A47 ,  #EFC958, #4AB19D, #344E5C);
 	animation: gradient 15s ease-in-out infinite;
     background-size: 400% 400%;
@@ -59,9 +58,15 @@ body {
     padding: 10px 20px;
     color: black;
     text-decoration: none;
-    border-radius: 5px;
-    border: 2px solid black;
+    font-size: 20px;
     transition: background-color 0.3s, color 0.3s;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 /* Calendar */
@@ -79,7 +84,6 @@ table {
 table th,
 table td {
     text-align: center;
-    border: 1px solid #ddd;
     width: 14.28%; /* Ensures equal width for all days */
     height: 120px;
     padding: 0;
@@ -91,48 +95,36 @@ table td {
     box-sizing: border-box;
     background: rgba(255, 255, 255, 0.25);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
-    background-color: #f9f9f9;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 table th {
-    font-family: "Poppins", serif;
-    font-size: large;
+    font-size: xx-large;
     padding: 10px;
-
 }
 
 table td {
-    font-family: "Poppins", serif;
-    background-color: #f9f9f9;
     position: relative;
     text-align: top;
-    font-size: medium;
+    font-size: x-large;
     padding: 5px;
     vertical-align: top; /* Align content to the top */
 }
 
-table td a {
-    color: #3498db;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 5px;
-}
-
 table td .event-bubble {
-    background-color: #eaf4fc;
-    border-radius: 5px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     padding: 5px;
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 5px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
     width: 90%; /* Ensure bubbles take up the full width */
-    max-width: 100px;
+    max-width: 200px;
     margin: 5px auto;
     text-align: center;
     position: relative;
@@ -142,14 +134,6 @@ table td a:hover {
     text-decoration: underline;
 }
 
-.current-day {
-    background-color: #ffeb3b; /* Yellow background */
-    color: #000; /* Black text */
-    font-weight: bold;
-    border: 2px solid #f57c00; /* Orange border */
-    padding: 5px;
-    border-radius: 5px;
-}
 /* Modal */
 .modal {
     display: none;
@@ -215,7 +199,6 @@ table td a:hover {
 
 /* Event Bubble Styles */
 .event-bubble {
-    background-color: #eaf4fc;
     border-radius: 5px;
     padding: 5px;
     font-size: 12px;
