@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <!-- Side Panel for Event Details -->
+
     <div class="side-panel" id="side-panel">
         <span class="close-btn">&times;</span>
         <h2>Event Title</h2>
@@ -35,20 +35,19 @@
         <p><strong>Long Description:</strong><span class="event-long_description"></span></p>
     </div>
 
-    <!-- Add JavaScript code here for AJAX -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-           // Event handler for event bubble click
+
     $('.event-bubble').click(function(e) {
         e.preventDefault();
         let eventId = $(this).data('event-id');
 
-        // AJAX request to get event details
+
         $.ajax({
             url: '/event-detail/' + eventId + '/',
             method: 'GET',
             success: function(data) {
-                // Populate the side panel with event details
+
                 $('#side-panel h2').text(data.name);
                 $('#side-panel .event-start_time').text(data.start_time);
                 $('#side-panel .event-location').text(data.location || 'N/A');
@@ -57,8 +56,6 @@
                 $('#side-panel .event-short_description').text(data.short_description || 'No description available.');
                 $('#side-panel .event-long_description').text(data.long_description || 'No description available.');
 
-
-                // Open the side panel
                 $('.side-panel').addClass('open');
             },
             error: function() {
@@ -67,7 +64,6 @@
         });
     });
 
-    // Event handler for closing the side panel
     $('.close-btn').click(function() {
         $('.side-panel').removeClass('open');
     });
